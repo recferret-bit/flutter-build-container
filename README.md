@@ -1,6 +1,6 @@
 # flutter-build-container
 
-Docker-based CI/CD build container for **Survival Syndicate** Flutter projects. Provides a reproducible environment with the Flutter SDK, Dart analysis tools, and test runners for use in cloud CI/CD pipelines.
+Docker-based CI/CD build container for Flutter projects. Provides a reproducible environment with the Flutter SDK, Dart analysis tools, and test runners for use in cloud CI/CD pipelines.
 
 ## What's Inside
 
