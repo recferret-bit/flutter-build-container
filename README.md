@@ -92,7 +92,26 @@ docker run --rm -e SKIP_CODEGEN=true -e SKIP_ANALYZE=true -e SKIP_FORMAT=true -v
 
 ## Deployment Guide
 
-### Pushing to a Container Registry
+### Automated publishing (GitHub Actions → Docker Hub)
+
+This repo includes a GitHub Actions workflow at `.github/workflows/dockerhub-publish.yml` that:
+- builds the `base` target from `Dockerfile`
+- pushes a multi-arch image (`linux/amd64`, `linux/arm64`) to Docker Hub
+
+Triggers:
+- `push` to `main`: pushes `:latest` and `:sha-<...>`
+- git tags matching `v*` (example `v3.41.1`): pushes that tag and `:sha-<...>`
+- `pull_request`: builds but does **not** push
+- `workflow_dispatch`: manual run
+
+Required GitHub repo secrets:
+- `DOCKERHUB_USERNAME`: your Docker Hub username
+- `DOCKERHUB_TOKEN`: a Docker Hub **access token** (recommended) or password
+
+Image name published:
+- `${DOCKERHUB_USERNAME}/flutter-build-container`
+
+### Pushing to a Container Registry (manual)
 
 Build and push the **base** image to your registry of choice:
 
