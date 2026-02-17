@@ -1,0 +1,35 @@
+# Version control
+.git
+.gitignore
+
+# IDE / Editor configs
+.idea
+.vscode
+.cursor
+*.iml
+
+# Build artifacts
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Documentation (not needed in build context)
+docs/
+GDD/
+prompts/
+*.md
+!pubspec.yaml
+
+# CI container files (avoid recursive copy)
+Dockerfile
+docker-compose.yml
+.dockerignore
